@@ -27,7 +27,7 @@ function Accordion({ data }) {
   return (
     <div className="accordion">
       {/* the map function receives an index to each element which it's iterating */}
-      {faqs.map((faq, i) => (
+      {data.map((faq, i) => (
         <AccordionItem
           title={faq.title}
           text={faq.text}
@@ -48,7 +48,7 @@ function AccordionItem({ num, title, text }) {
 
   return (
     <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
-      <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
+      <p className="number">{num < 10 ? `0${num + 1}` : num + 1}</p>
       <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
       {isOpen ? <div className="content-box">{text}</div> : ""}
